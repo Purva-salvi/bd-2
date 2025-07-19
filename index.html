@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Whimsical Memory Jar</title>
+  <style>
+    body {
+      background: #fffbee;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #ffb6c1;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    .jar-frame {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      margin: auto;
+      background: url('C://Users//HP//OneDrive//Desktop//Happy birthday//Hb-2//b560d173-a452-4481-9ae5-b884dc1a19e1.jpeg') center/contain no-repeat;
+      background-size: contain;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    .jar-grid {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 6px;
+      height: 100px; /* Only bottom space is used */
+      z-index: 2;
+    }
+
+    .paper-ball {
+      width: 24px;
+      height: 24px;
+      background: #fff99e;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .paper-ball:hover {
+      transform: scale(1.1);
+    }
+
+    .note {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      width: 320px;
+      background: #fff9d8;
+      border-radius: 12px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 12px rgba(255, 182, 193, 0.4);
+    }
+
+    .hearts {
+      font-size: 24px;
+      color: #ffadc2;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💛 Paper Heart Memory Jar 💛</h1>
+
+  <div class="jar-frame">
+    <div class="jar-grid" id="jar">
+      <!-- Balls will be inserted here -->
+    </div>
+  </div>
+
+  <div id="note" class="note">
+    <p id="memoryText"></p>
+    <div class="hearts">💛💗</div>
+  </div>
+
+  <script>
+    const memories = [
+      "Warm chai on a rainy rooftop", "Sunset train ride with window breeze",
+      "Laughing too hard over mangoes", "That one hug that lasted too long",
+      "Floral scarf floating in monsoon wind", "Midnight gulab jamun cravings",
+      "Campfire stories under lychee skies", "Tiny gold anklet that jingled joy",
+      "Notebook filled with outfit sketches", "Golden hour whispers with bestie",
+      "Overwater picnic with pink lemonade", "Dance rehearsal turned sleepover",
+      "Star-shaped pancake experiment", "Lip tint that smelled like lychee",
+      "Garden swings and mint sherbet", "That voice note you replayed 11 times",
+      "Ribbon-wrapped diary entry day", "Layered pearl necklace tantrum",
+      "Soft curls in your summer hat", "Cottagecore playlist in a thrifted van",
+      "Tripped over puff sleeves—still iconic", "Secret recipe in grandma’s handwriting",
+      "Paris dreams from vintage postcard", "Melting lipstick in your camp bag",
+      "Confetti breeze during photoshoot", "Twilight balcony confessions",
+      "Giggly photo edits till 3am", "Mirror selfies with iced tea",
+      "Strawberry socks on hiking day", "Paper crane notes under pillow"
+    ];
+
+    const jar = document.getElementById('jar');
+    for (let i = 0; i < memories.length; i++) {
+      const ball = document.createElement('div');
+      ball.className = 'paper-ball';
+      ball.onclick = () => showNote(i);
+      jar.appendChild(ball);
+    }
+
+    function showNote(index) {
+      document.getElementById('memoryText').textContent = memories[index];
+      document.getElementById('note').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
